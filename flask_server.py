@@ -7,6 +7,8 @@ import argparse
 # Getting the location of the model from the user
 parser = argparse.ArgumentParser(description='Please give the location of the model')
 parser.add_argument('location', metavar='Location', type=str,help='Location of the model')
+
+
 args = parser.parse_args()
 location = args.location
 print(location)
