@@ -33,6 +33,8 @@ def average_vectors():
     # Making sure it's lower case, otherwise the model will throw an error
     req_data_string = req_data_string.lower()
 
+    # TODO Clear whitespaces in text and make sure it is just 1 word, otherwise it is going to throw an error
+
     # loading model and giving output
     vector = model[req_data_string]
 
@@ -88,3 +90,4 @@ if __name__ == '__main__':
     # Loading the models
     app.run()
     # host='0.0.0.0', debug=True, port=50500
+

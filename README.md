@@ -4,6 +4,7 @@
 * [General info](#general-info)
 * [Technologies](#technologies)
 * [Setup](#setup)
+* [To access the service using API calls](#to-access-the-service-using-api-calls)
 
 ## General info
 This is a glove word vectoriser server, where you can send a word/sentence to get the vectors. If you don't want to set up the model and all the code that comes with that yourself, you can just use this service using python3 or use the docker container to do POST request on and get vector embeddings. You can then use these vector embedding to do whatever you wish. (Similarity, closenes, average, weighted average etc.)
@@ -14,6 +15,10 @@ You can get different glove models from the [stanford nlp website](https://nlp.s
 * [glove.42B.300d.zip](https://nlp.stanford.edu/data/glove.42B.300d.zip) Common Crawl (42B tokens, 1.9M vocab, uncased, 300d vectors, 1.75 GB)
 * [glove.840B.300d.zip](https://nlp.stanford.edu/data/glove.840B.300d.zip) Common Crawl (840B tokens, 2.2M vocab, cased, 300d vectors, 2.03 GB)
 * [glove.twitter.27B.zip](https://nlp.stanford.edu/data/glove.twitter.27B.zip) Twitter (2B tweets, 27B tokens, 1.2M vocab, uncased, 25d, 50d, 100d, & 200d vectors, 1.42 GB)
+
+Download the model of your choice, unzip it and then select the path of the model version you are going to use, 
+whichever version of the model you will use, it will give back the vectors accordingly. If you use the model with 50 vector size, it will return a word vector of size 50. 
+There are options for vector size of 50,100,200,300
 
 
 ## Technologies
@@ -36,12 +41,14 @@ You can then access the flask server on you localhost port 5000, with python lib
 ```
 $ import requests
 $ address = 'http://127.0.0.1:5000/average_vectorizer'
-$ result = requests.post(url=address, data='Your word goes here')
+$ result = requests.post(url=address, data='words')
+$ byte_array = result.content
 ```
 The result you will get here is going to be a byte array, you will need to convert the byte array to numpy array for further use
 ```
 $ import io
-$ numpy_array = np.load(io.BytesIO(x),allow_pickle=True)
+$ import numpy as np
+$ numpy_array = np.load(io.BytesIO(byte_array),allow_pickle=True)
 ```
 This numpy arrays is the vector of the word you sent in the POST request
 
