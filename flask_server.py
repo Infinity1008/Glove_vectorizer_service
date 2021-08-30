@@ -1,11 +1,21 @@
 from flask import Flask, request, Response, jsonify
 from custom_functions import load_glove_model, np_array_to_byte_array
+import argparse
 
 
+########################################################################
+# Getting the location of the model from the user
+parser = argparse.ArgumentParser(description='Please give the location of the model')
+parser.add_argument('location', metavar='Location', type=str,help='Location of the model')
+args = parser.parse_args()
+location = args.location
+print(location)
+########################################################################
 
 # Loading the model
-model = load_glove_model('/Users/siddharthkothotya/PycharmProjects/Glove_vectorizer/glove/glove.6B.50d.txt')
+model = load_glove_model(location)
 
+########################################################################
 
 app = Flask(__name__)
 
