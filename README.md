@@ -31,10 +31,10 @@ Project is created with:
 ## Setup
 To run this project, clone it to a local repository, make a python3 environment with requirements.txt and run the flask_server.py file with the location on the model as shown:
 
-
 ```
 python3 flask_server.py model_location_here
 ```
+Whatever model size you choose(50,100,200,300), you will get the vector of the same size back.
 
 ## To access the service using API calls
 You can then access the flask server on you localhost port 5000, with python library request or any other way you wish.
@@ -77,8 +77,21 @@ This numpy arrays are going to be vector of the words you sent in the POST reque
 Build the docker file with 
 ```
 git clone https://github.com/Infinity1008/Glove_vectorizer_service.git
-docker build Glove_vectorizer -t nameofyourcontainer
 ```
+
+You can select model with 50,100,200,300 vectors. Just specify the model name at the time of building the image.
+```
+docker build Glove_vectorizer name_of_yout_model -t nameofyourcontainer
+```
+Like this
+```
+docker build Glove_vectorizer glove.6B.50d.txt -t nameofyourcontainer
+```
+**or**
+```
+docker build Glove_vectorizer glove.6B.300d.txt -t nameofyourcontainer
+```
+and so on.
 
 To run the container, use docker run command, bind the port 5000 of your container to 
 any port you want and access the service on the same port. Here i have bound the port 5000 of container
