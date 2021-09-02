@@ -88,6 +88,6 @@ def help():
 
 if __name__ == '__main__':
     # Loading the models
-    app.run()
+    app.run(host='0.0.0.0')
     # host='0.0.0.0', debug=True, port=50500
 

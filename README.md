@@ -32,23 +32,23 @@ To run this project, clone it to a local repository, make a python3 environment 
 
 
 ```
-$ python3 flask_server.py model_location_here
+python3 flask_server.py model_location_here
 ```
 
 ## To access the service using API calls
 You can then access the flask server on you localhost port 5000, with python library request or any other way you wish.
 
 ```
-$ import requests
-$ address = 'http://127.0.0.1:5000/average_vectorizer'
-$ result = requests.post(url=address, data='words')
-$ byte_array = result.content
+import requests
+address = 'http://127.0.0.1:5000/average_vectorizer'
+result = requests.post(url=address, data='words')
+byte_array = result.content
 ```
 The result you will get here is going to be a byte array, you will need to convert the byte array to numpy array for further use
 ```
-$ import io
-$ import numpy as np
-$ numpy_array = np.load(io.BytesIO(byte_array),allow_pickle=True)
+import io
+import numpy as np
+numpy_array = np.load(io.BytesIO(byte_array),allow_pickle=True)
 ```
 This numpy arrays is the vector of the word you sent in the POST request
 
