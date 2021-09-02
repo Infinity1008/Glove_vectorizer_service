@@ -8,7 +8,7 @@ Run pip install -r requirements.txt
 Run wget https://nlp.stanford.edu/data/glove.6B.zip
 Run unzip glove.6B.zip
 Entrypoint ["python3 flask_server.py"]
-CMD ["glove.6B.50d.txt"]
+CMD ["glove.6B.100d.txt"]
 
 
 

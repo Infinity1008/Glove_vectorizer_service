@@ -77,33 +77,32 @@ This numpy arrays are going to be vector of the words you sent in the POST reque
 Build the docker file with 
 ```
 git clone https://github.com/Infinity1008/Glove_vectorizer_service.git
+docker build Glove_vectorizer -t nameofyourcontainer
 ```
 
-You can select model with 50,100,200,300 vectors. Just specify the model name at the time of building the image.
-```
-docker build Glove_vectorizer name_of_yout_model -t nameofyourcontainer
-```
+You can select model with 50,100,200,300 vectors. Just specify the model name at the time of running the image.
+
 **Like this**
 
 Model that gives vector of 50D
 
 ```
-docker build Glove_vectorizer glove.6B.50d.txt -t nameofyourcontainer
+docker run nameofyourcontainer glove.6B.50d.txt -p 5000:5000
 ```
 **or**
 
 Model that gives vector of 300D
 ```
-docker build Glove_vectorizer glove.6B.300d.txt -t nameofyourcontainer
+docker run nameofyourcontainer glove.6B.300d.txt -p 5000:5000
 ```
-and so on.
+and so on. If you don't specify any model name, it will use the model with 100D vectors 
 
-To run the container, use docker run command, bind the port 5000 of your container to 
+To access the container on a specific port, use docker run command and bind the port 5000 of your container to 
 any port you want and access the service on the same port. Here i have bound the port 5000 of container
 to the port 5000 of the local machine
 
 ```
-docker run nameofyourcontainer -p 5000:5000
+docker run nameofyourcontainer glove.6B.100d.txt -p 5000:5000
 ```
 You can now access the API services on **http://127.0.0.1:5000/vectorizer_word** and so on.
 
