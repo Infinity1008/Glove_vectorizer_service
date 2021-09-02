@@ -87,13 +87,13 @@ You can select model with 50,100,200,300 vectors. Just specify the model name at
 Model that gives vector of 50D
 
 ```
-docker run nameofyourcontainer glove.6B.50d.txt -p 5000:5000
+docker run nameofyourcontainer glove.6B.50d.txt
 ```
 **or**
 
 Model that gives vector of 300D
 ```
-docker run nameofyourcontainer glove.6B.300d.txt -p 5000:5000
+docker run nameofyourcontainer glove.6B.300d.txt
 ```
 and so on. If you don't specify any model name, it will use the model with 100D vectors 
 
