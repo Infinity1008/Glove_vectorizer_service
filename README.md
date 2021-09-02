@@ -83,11 +83,16 @@ You can select model with 50,100,200,300 vectors. Just specify the model name at
 ```
 docker build Glove_vectorizer name_of_yout_model -t nameofyourcontainer
 ```
-Like this
+**Like this**
+
+Model that gives vector of 50D
+
 ```
 docker build Glove_vectorizer glove.6B.50d.txt -t nameofyourcontainer
 ```
 **or**
+
+Model that gives vector of 300D
 ```
 docker build Glove_vectorizer glove.6B.300d.txt -t nameofyourcontainer
 ```
