@@ -5,7 +5,7 @@
 * [Technologies](#technologies)
 * [Setup](#setup)
 * [To access the service using API calls](#to-access-the-service-using-api-calls)
-* [To access via a docker container](#To access via a docker container)
+* [To access via a docker container](#to access via a docker container)
 
 ## General info
 This is a glove word vectoriser server, where you can send a word/sentence to get the vectors. If you don't want to set up the model and all the code that comes with that yourself, you can just use this service using python3 or use the docker container to do POST request on and get vector embeddings. You can then use these vector embedding to do whatever you wish. (Similarity, closenes, average, weighted average etc.)
