@@ -102,7 +102,13 @@ any port you want and access the service on the same port. Here i have bound the
 to the port 5000 of the local machine
 
 ```
-docker run nameofyourcontainer glove.6B.100d.txt -p 5000:5000
+docker run -p 5000:5000 nameofyourcontainer glove.6B.100d.txt 
 ```
 You can now access the API services on **http://127.0.0.1:5000/vectorizer_word** and so on.
 
+## Contributing
+1. Fork it!
+2. Create your feature branch: `git checkout -b my-new-feature`
+3. Commit your changes: `git commit -am 'Add some feature'`
+4. Push to the branch: `git push origin my-new-feature`
+5. Submit a pull request :D
